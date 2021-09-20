@@ -1,0 +1,71 @@
+.popup{
+    display: inline-block;
+    
+    flex-wrap: nowrap;
+    position: fixed;
+    left: 30%;
+    top: 20%;
+    background-color: darkcyan;
+    height: 500px;
+    width: 500px;
+    overflow: auto;
+    overflow-x: hidden;
+   opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+   transition: all 0.5s ease-in-out;
+   z-index: 1;
+}
+.popup::-webkit-scrollbar {
+    display: none;
+  }
+.closebutton{
+    position: fixed;
+    margin-left: 440px;
+    width: 10px;
+}
+.addpersonicon{
+  /* background-color: darkgreen; */
+  
+  margin-left: 20px;
+  margin-top: 10px;
+  display: inline-block;
+}
+.poplistname{
+    margin-top: 0px;
+    padding-left: 10px;
+    display: inline-block;
+    background-color: rgb(168, 235, 168);
+    border-radius: 10px;
+    width: 350px;
+}
+.poplistname:hover{
+  cursor: pointer;
+  width: 370px;
+  background-color: white;
+}
+.blurlist{
+  filter: blur(4px);
+}
+@media only screen and (max-width: 600px) {
+    .popup {
+      /* background-color: lightblue; */
+      width: 450px;
+      left: 50px  ;
+    }
+    .closebutton{
+        margin-left: 390px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    .popup {
+      /* background-color: red; */
+      width: 450px;
+      left: 15px  ;
+    }
+    .closebutton{
+        margin-left: 390px;
+    }
+  }

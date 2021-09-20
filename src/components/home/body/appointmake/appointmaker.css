@@ -1,0 +1,34 @@
+.timeinput{
+    /* border: none; */
+    width: 50px;
+}
+
+.sloterow{
+    
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.slote{
+    margin: 10px;
+    border-radius: 10px;
+    background-color: darkcyan;
+    width: 100px;
+    height: 50px;
+    transition: width 2s;
+}
+.sloteclose{
+    position: static;
+    left: 100px;
+}
+.inputpanel{
+    display: inline-block;
+}
+.submit{
+    background-color: #005f5f;
+    color: white;
+    border-radius: 10px;
+    margin-left: 30px;
+    display: inline-block;
+}

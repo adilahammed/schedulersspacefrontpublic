@@ -1,0 +1,7 @@
+.header{
+    background-image: linear-gradient(to top, #004c5f , #004c5f , #004c5f , #004c5f);
+    color: white;
+}
+.drpdo:hover{
+    background-color: cyan;
+}

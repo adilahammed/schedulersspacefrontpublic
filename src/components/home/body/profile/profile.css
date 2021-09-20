@@ -1,0 +1,14 @@
+
+.viewprofile{
+    text-align: center;
+    display: inline-block;
+    width: 750px;
+    /* background-color: darkblue; */
+}
+
+.avatar{  
+    border-radius: 30px;
+}
+.profileedit{
+    display: inline-block;
+}
