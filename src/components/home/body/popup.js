@@ -6,12 +6,16 @@ import axios from 'axios';
 import './body.css'
 
 function Popup({closepopup,token}){
+    const [slotes,setslotes]=useState([])
+    const [reqnames,setreqnames]=useState([])
     const [requestlist,setrequestlist]=useState([])
     useEffect(()=>{
         axios.get('http://localhost:9000/api/appointment/viewreq',{params:{token:token}})
         .then((res)=>{
-            setrequestlist(res.data.message)
+            // setrequestlist(res.data.message)
             console.log(res.data.message);
+            setslotes(res.data.message.slotes)
+            setreqnames(res.data.message.names)
         })
     },[])
 
@@ -26,9 +30,10 @@ function Popup({closepopup,token}){
                              </Button>
                    </div>
                     <h1>afdsfdsfdsfdfds</h1>
-                  {requestlist.map((user)=>{
+                  {slotes.map((slote,i)=>{
                        return(
-                       <Popuplist id={user._id} token={token} username={user.username} />
+            
+                       <Popuplist  token={token} names={reqnames[i]} slotes={slote} />
                        )
                   })}
 

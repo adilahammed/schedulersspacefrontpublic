@@ -29,7 +29,7 @@ console.log(slote);
             </div>
             <div>
             <div className="time">
-                <h2>Time:10am TO 4pm</h2>
+                {/* <h2>Time:10am TO 4pm</h2> */}
                 
             </div>
             </div>
