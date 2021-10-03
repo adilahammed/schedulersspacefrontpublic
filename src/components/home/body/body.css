@@ -69,3 +69,9 @@
         margin-left: 390px;
     }
   }
+  .inbl{
+    display: inline-block;
+  }
+  .hv:hover{
+    cursor: pointer;
+  }

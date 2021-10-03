@@ -29,11 +29,12 @@ function Popup({closepopup,token}){
                                 <CloseIcon/>
                              </Button>
                    </div>
-                    <h1>afdsfdsfdsfdfds</h1>
+                    <h1 >Your slotes</h1>
                   {slotes.map((slote,i)=>{
                        return(
             
-                       <Popuplist  token={token} names={reqnames[i]} slotes={slote} />
+                       <Popuplist  token={token} names={reqnames[i]} slotes={slote}
+                        sloteno={i} />
                        )
                   })}
 
