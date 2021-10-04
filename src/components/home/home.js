@@ -13,6 +13,7 @@ function Home ({token,tokenmanage}){
  const [homechange,sethomechange]=useState("1")
  const [picture,setpicture]=useState()
  const [makeappo,setmakeappo]=useState("1")
+ const [searchtxt,setsearchtxt]=useState("!")
  useEffect(() => {
      axios.get('http://localhost:9000/api/user/personalinfo',{params:{token}}).then((res)=>{
         let {id,username,email,picture}=res.data.userinfo
@@ -37,9 +38,13 @@ const home=(h)=>{
 }
 const setappointment=(a)=>{
    setmakeappo(a)
+
    // alert(a)
 }
+const search=(a)=>{
+   setsearchtxt(a)
 
+}
 // let nu=profilechange
 // console.log("++"+picture);
     return(
@@ -47,14 +52,14 @@ const setappointment=(a)=>{
        <Header viewappointment={viewappointment}
         username={username} id={id} token={token} 
         tokenmanage={tokenmanage} profile={profile} 
-        home={home} setappointment={setappointment} />
+        home={home} setappointment={setappointment} searchcall={search} />
 
 
 
       <Body appointvalue={appointvalue} token={token} 
       profilechan={profilechan} homechange={homechange} 
       username={username} id={id} picture={picture} 
-      email={email} makeappo={makeappo} />
+      email={email} makeappo={makeappo} searchtxt={searchtxt} />
 
     </div>
 )

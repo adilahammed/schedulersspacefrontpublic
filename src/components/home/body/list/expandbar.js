@@ -13,7 +13,11 @@ function Expadbar({id,token}){
             method:"get",
             params:{token:token,id:id}
         }).then((res)=>{
-            setslotes(res.data.message.slotes)
+            if(res.data.status==="noslote"){
+                
+            }else{
+                setslotes(res.data.message.slotes)
+            }
         })
         return("")
     }, [])

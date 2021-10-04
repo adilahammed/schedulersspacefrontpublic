@@ -6,15 +6,23 @@ import { Button } from '@material-ui/core';
 import axios from 'axios';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 function Header({username,id,token,tokenmanage,
-  viewappointment,profile,home,setappointment}){
+  viewappointment,profile,home,setappointment,searchcall}){
   const [n, setn] = useState(2)
   const [p,setp] =useState(2)
   const [h,seth] =useState(2)
   const [a,seta] =useState(2)
+  const [searchtxt,setsearchtxt]=useState("")
   const logout=()=>{
     tokenmanage("")
   }
 
+  const getsearchtxt=(e)=>{
+    setsearchtxt(e.target.value)
+  }
+  const search=()=>{
+    searchcall(searchtxt)
+      // alert(searchtxt)
+  }
  const setappo=()=>{
    setappointment(a)
    let i=a
@@ -102,10 +110,10 @@ function Header({username,id,token,tokenmanage,
                 </Button>
               </li>
             </ul>
-            <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            {/* <form className="d-flex"> */}
+              <input onChange={getsearchtxt} value={searchtxt} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button onClick={search} className="btn btn-outline-success" type="submit">Search</button>
+            {/* </form> */}
           </div>
         </div>
       </nav>

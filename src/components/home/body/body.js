@@ -7,7 +7,7 @@ import axios from 'axios'
 import Popup from './popup';
 import './body.css'
 function Body({token,appointvalue,profilechan,homechange,username,id,picture,email,
-    makeappo}){
+    makeappo,searchtxt}){
     const [profile,setprofile]=useState(profilechan)
     const [users, setusers] = useState([])
     const [viewappointment,setviewappointment]=useState(0)
@@ -26,10 +26,7 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
         }).catch((err)=>{
             console.log(err);
         })
-        return(()=>{
-            
-            setusers({})
-        })
+      
     }, [])
     useEffect(() => {
         let a=profile
@@ -53,6 +50,16 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
         seteditappointment(makeappo)
         setprofile(2)
     }, [makeappo])
+
+    useEffect(() => {
+        if(searchtxt !== "!"){
+            // alert(searchtxt)
+            axios.get('http://localhost:9000/api/user/search',{params:{token:token,text:searchtxt}})
+            .then((res)=>{
+                setusers(res.data.users)
+            })
+        }
+    }, [searchtxt])
 
     const closepopup=(a)=>{
         setviewappointment(a)
