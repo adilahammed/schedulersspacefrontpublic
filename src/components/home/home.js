@@ -39,8 +39,8 @@ const home=(h)=>{
    
 }
 const setappointment=(a)=>{
-   // setmakeappo(a)
-   setsc(a)
+   setmakeappo(a)
+   // setsc(a)
 
    // alert(a)
 }
@@ -66,7 +66,7 @@ const schedule=(a)=>{
         shownotification={shownotification} schedule={schedule} />
 
 
-      
+
       <Body appointvalue={appointvalue} token={token} 
       profilechan={profilechan} homechange={homechange} 
       username={username} id={id} picture={picture} 
