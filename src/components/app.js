@@ -6,7 +6,16 @@ let token=localStorage.getItem("token")
 function App(){
     const[page,setPage]=useState("login")
     useEffect(() => {
-        if(token !==""){
+      
+        if(token ===null || token===""){
+            setPage("login")
+        }
+        else if(token !== null){
+          
+            setPage("homepage")
+        }
+       else if(token !== ""){
+        
             setPage("homepage")
         }
     }, [])

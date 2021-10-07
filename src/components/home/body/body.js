@@ -100,7 +100,7 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
                    return(
                    <List key={user._id} id={user._id}
                      username={user.username} token={token} picture={user.picture} 
-                     slote={slote}
+                     slote={slote} desc={user.description} email={user.email}
                      />
                    ) 
                })}

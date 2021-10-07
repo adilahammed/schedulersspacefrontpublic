@@ -12,3 +12,13 @@
 .profileedit{
     display: inline-block;
 }
+.descinput{
+    width: 300px;
+    height: 200px;
+}
+textarea{
+    resize: none;
+  }
+.profiledit{
+    margin-top: 50px;
+}  

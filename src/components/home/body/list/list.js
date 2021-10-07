@@ -3,7 +3,7 @@ import './list.css'
 import Expadbar from './expandbar';
 
 
-function List({id,username,token,picture,slote}){
+function List({id,username,token,picture,slote,desc,email}){
 const [expand, setexpand] = useState(false)    
 const [slotes,setslotes]=useState([])
 const manageexpand=(value)=>{
@@ -23,9 +23,10 @@ console.log(slote);
             </div>
             <div className="username">
                 <h1>{username}</h1>
+                <h5>E-mail:{email}</h5>
             </div>
             <div className="desc">
-            <p> sadasdasdasdscas qerqw qwasdas </p>
+            <p>{desc}</p>
             </div>
             <div>
             <div className="time">

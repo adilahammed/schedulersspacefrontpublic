@@ -5,7 +5,7 @@ import axios from 'axios'
 
 function Profile({username,token,id,picture,email}){
 const [image,setimage]=useState()
-
+const [desc,setdesc]=useState()
     const getimage=(e)=>{
         console.log(e.target.files[0]);
         setimage(e.target.files[0])
@@ -23,6 +23,15 @@ const [image,setimage]=useState()
             alert(res.data.message) 
         })
     }
+    const getdesc=(e)=>{
+        setdesc(e.target.value)
+        // console.log(e.target.value);
+    }
+    const senddesc=()=>{
+        axios.post('http://localhost:9000/api/profile',{
+                token,desc    
+        })
+    }
     return(
         <div className="profile">
             <div  className="viewprofile" >
@@ -35,11 +44,19 @@ const [image,setimage]=useState()
                 <h3>Email:{email}</h3>
             </div>
             <div className="profileedit">
-                
+                <div>
                     <input onChange={getimage} type="file"></input>
                     <button onClick={()=>{sendimage()}}>
-                        submit
+                        upload
                     </button>
+                </div>
+                <div className="profiledit">
+                <textarea onChange={getdesc} rows="5" cols="30" height="100px" maxLength="120" id="TITLE">
+                </textarea>
+                 <button onClick={senddesc}> submit</button> 
+                </div>
+
+                
                 
             </div>
         </div>

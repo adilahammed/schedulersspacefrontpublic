@@ -6,23 +6,10 @@ import { Button } from '@material-ui/core';
 import axios from 'axios';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-function Popuplist({id,token,names,slotes,sloteno}){
+function Popuplist({id,token,names,slotes,sloteno,viewuser}){
     const [reqnames,setreqnames]=useState([])
    
-    // const accept=(n)=>{
-    //     console.log(n);
-    //  alert(n)
-    //     axios.post("http://localhost:9000/api/appointment/accept",{
-    //         token:token,
-    //         accid:n
-    //     }).then((res)=>{
-    //         if(res.data.status==="ok"){
-    //             setaccepticon("done")
-    //         }
-    //     }).catch((err)=>{
-    //         console.log(err);
-    //     })
-    // }
+   
     return(
         <div>
 
@@ -31,7 +18,8 @@ function Popuplist({id,token,names,slotes,sloteno}){
             {names?names.map((val,i)=>{
                return(
 
-                   <Popupnames sloteno={sloteno} nameno={i} token={token} names={val} />
+                   <Popupnames key={i} sloteno={sloteno} nameno={i} token={token} names={val}
+                    viewuser={viewuser} />
                 //    <div>
                 //        <h5 className="poplistname">{val}</h5>
                 //        <div onClick={val=>accept(val)} className="inbl hv">

@@ -3,7 +3,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import axios from 'axios'
-function Popupnames({token,names,sloteno,nameno}){
+function Popupnames({token,names,sloteno,nameno,viewuser}){
     const [accepticon, setaccepticon] = useState("add")
 
 
@@ -24,10 +24,14 @@ function Popupnames({token,names,sloteno,nameno}){
             console.log(err);
         })
     }
-
+    // const viewuser=()=>{
+        
+    // }
     return(
         <div>
-          <h5 className="poplistname">{names}</h5>
+           <div className="inbl" onClick={()=>{viewuser(names)}}>
+                 <h5 className="poplistname">{names}</h5>
+            </div> 
            <div onClick={names=>accept(names)} className="inbl hv">
             {accepticon==="add"?<PersonAddIcon fontSize={"large"}/>:accepticon==="loading"?<HourglassEmptyIcon fontSize={"large"}/>:<CheckCircleOutlineIcon fontSize={"large"}/>}
             </div>

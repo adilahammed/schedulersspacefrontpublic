@@ -23,7 +23,7 @@
   }
 .closebutton{
     position: fixed;
-    margin-left: 440px;
+    margin-left: 410px;
     width: 10px;
 }
 .addpersonicon{
@@ -75,3 +75,13 @@
   .hv:hover{
     cursor: pointer;
   }
+ .userdet{
+   margin-left: 30px;
+   margin-top: 50px;
+ }
+ .userdetimage{
+   border-radius: 20px;
+ }
+ .userdetname{
+   margin-left: 20px;
+ }
