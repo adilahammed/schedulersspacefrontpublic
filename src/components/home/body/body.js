@@ -5,9 +5,11 @@ import Profile from './profile/profile';
 import Appointmentmaker from './appointmake/appointmaker';
 import axios from 'axios'
 import Popup from './popup';
+import Notifiction from './notification/notification';
+import Schedule from './schedules/schedule';
 import './body.css'
 function Body({token,appointvalue,profilechan,homechange,username,id,picture,email,
-    makeappo,searchtxt}){
+    makeappo,searchtxt,shownot,schedule}){
     const [profile,setprofile]=useState(profilechan)
     const [users, setusers] = useState([])
     const [viewappointment,setviewappointment]=useState(0)
@@ -15,6 +17,8 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
     const [editappointment,seteditappointment]=useState(1)
     const [slote,setslote]=useState([])
     const [load, setload] = useState(true)
+    const [notf,setnotf]=useState(0)
+    const [showschedule,setshowschedule]=useState(0)
     useEffect(() => {
         axios.post('http://localhost:9000/api/user/apposetusers',{
             token
@@ -44,12 +48,37 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
     useEffect(() => {
         seteditappointment(1)
         setprofile(2)
+        setnotf(0)
+        setshowschedule(0)
+
     }, [homechange])
     
     useEffect(() => {
         seteditappointment(makeappo)
+        setnotf(0)
         setprofile(2)
+        setshowschedule(0)
+
     }, [makeappo])
+
+    useEffect(() => {
+        if(shownot!==0){
+            setnotf(shownot)
+            setprofile(2)
+            seteditappointment(1)
+            
+            // alert(shownot)
+        }
+    }, [shownot])
+
+    useEffect(() => {
+        if(schedule !==0){
+            setshowschedule(schedule)
+            setprofile(2)
+            seteditappointment(1)
+            setnotf(0)
+        }
+    }, [schedule])
 
     useEffect(() => {
         if(searchtxt !== "!"){
@@ -60,12 +89,12 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
             })
         }
     }, [searchtxt])
-
+    
     const closepopup=(a)=>{
         setviewappointment(a)
         setblur("")   
     }
-  
+    
     if(profile>=3){
         return(
              <div>
@@ -79,13 +108,22 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
              </div>   
         )
     }
-    
+    if(notf>0){
+       return(
+           <Notifiction token={token} />
+       ) 
+    }
     if(editappointment>1){
         return(
             <Appointmentmaker token={token} />
         )
     }
     
+    if(showschedule>0){
+      return(
+          <Schedule token={token} />
+      )
+    }
 
         return(
            <div>

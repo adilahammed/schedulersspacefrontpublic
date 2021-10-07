@@ -6,12 +6,16 @@ import { Button } from '@material-ui/core';
 import axios from 'axios';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 function Header({username,id,token,tokenmanage,
-  viewappointment,profile,home,setappointment,searchcall}){
+  viewappointment,profile,home,setappointment,searchcall,
+  shownotification,schedule}){
   const [n, setn] = useState(2)
   const [p,setp] =useState(2)
   const [h,seth] =useState(2)
   const [a,seta] =useState(2)
   const [searchtxt,setsearchtxt]=useState("")
+  const [not,setnot]=useState(2)
+  const [sc,setsc]=useState(2)
+
   const logout=()=>{
     tokenmanage("")
   }
@@ -28,17 +32,7 @@ function Header({username,id,token,tokenmanage,
    let i=a
    i++
    seta(i)
-  //  axios.post('http://localhost:9000/api/appointment/setappo',
-  //    {
-  //      token,
-  //      setappo:true
-  //    }
-  //  ).then((res)=>{
-  //   alert(res.data.message)
-  //   console.log(res.data);
-  //  }).catch((err)=>{
-  //    console.log(err);
-  //  })
+ 
  }
 
  
@@ -66,10 +60,13 @@ function Header({username,id,token,tokenmanage,
                 }}  >Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <a onClick={()=>{
+                  shownotification(not)
+                  setnot(not+1)
+                  }} className="nav-link hv" >notification</a>
               </li>
               <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a className="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <Button> 
                  <EventNoteIcon />
                  </Button> 
@@ -89,7 +86,10 @@ function Header({username,id,token,tokenmanage,
                 </Button>
           
                 <Button> 
-                  <li className="drpdo"><a  >Something else here</a></li>
+                  <li className="drpdo" onClick={()=>{
+                    schedule(sc)
+                    setsc(sc+1)
+                  }}><a  >Schedules</a></li>
                 </Button>
                 
 
