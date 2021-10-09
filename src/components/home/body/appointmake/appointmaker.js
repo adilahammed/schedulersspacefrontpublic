@@ -56,7 +56,7 @@ function Appointmentmaker({token}){
     }
     const submit=()=>{
         axios({
-            url:"http://localhost:9000/api/appointment/setappo",
+            url:"https://schedulerspace.herokuapp.com/api/appointment/setappo",
             method:"post",
             data:{token,setappo:true,slotes:slote}
         })

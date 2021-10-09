@@ -14,7 +14,7 @@ const [desc,setdesc]=useState()
         const formdata= new FormData()
         formdata.append('productImage',image)
         axios({
-            url:'http://localhost:9000/upload/image',
+            url:'https://schedulerspace.herokuapp.com/upload/image',
             method:"post",
             headers:{"Authorization":`Bearer ${token}`},
             data:formdata
@@ -28,7 +28,7 @@ const [desc,setdesc]=useState()
         // console.log(e.target.value);
     }
     const senddesc=()=>{
-        axios.post('http://localhost:9000/api/profile',{
+        axios.post('https://schedulerspace.herokuapp.com/api/profile',{
                 token,desc    
         })
     }
@@ -37,7 +37,7 @@ const [desc,setdesc]=useState()
             <div  className="viewprofile" >
                 <div >
                 
-                <img className="avatar" src={`http://localhost:9000/images/${picture}`} alt="userimage" 
+                <img className="avatar" src={`https://schedulerspace.herokuapp.com/images/${picture}`} alt="userimage" 
                     width="100" height="100"></img>
                 </div>
                 <h3>username:{username}</h3>
@@ -69,4 +69,4 @@ const [desc,setdesc]=useState()
 
 export default Profile
 
-// http://localhost:9000/images/61358b3cc65046e58f3abc80.jpg
+// https://schedulerspace.herokuapp.com/images/61358b3cc65046e58f3abc80.jpg

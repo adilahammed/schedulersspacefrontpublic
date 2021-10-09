@@ -9,7 +9,7 @@ function Expadbar({id,token}){
 
     useEffect(() => {
         axios({
-            url:"http://localhost:9000/api/appointment/slotes",
+            url:"https://schedulerspace.herokuapp.com/api/appointment/slotes",
             method:"get",
             params:{token:token,id:id}
         }).then((res)=>{
@@ -27,7 +27,7 @@ const showbutton=(e)=>{
 }
 const sendreq=()=>{
    
-    axios.post('http://localhost:9000/api/appointment/sendreq',{
+    axios.post('https://schedulerspace.herokuapp.com/api/appointment/sendreq',{
         token:token,
         rec_id:id,
         sloteno:selection

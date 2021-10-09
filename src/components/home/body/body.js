@@ -20,7 +20,7 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
     const [notf,setnotf]=useState(0)
     const [showschedule,setshowschedule]=useState(0)
     useEffect(() => {
-        axios.post('http://localhost:9000/api/user/apposetusers',{
+        axios.post('https://schedulerspace.herokuapp.com/api/user/apposetusers',{
             token
         }).then((res)=>{
             console.log(res.data.message.dbresultuser);
@@ -83,7 +83,7 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
     useEffect(() => {
         if(searchtxt !== "!"){
             // alert(searchtxt)
-            axios.get('http://localhost:9000/api/user/search',{params:{token:token,text:searchtxt}})
+            axios.get('https://schedulerspace.herokuapp.com/api/user/search',{params:{token:token,text:searchtxt}})
             .then((res)=>{
                 setusers(res.data.users)
             })

@@ -4,7 +4,7 @@ import axios from 'axios'
 function Notifiction({token}){
     const [notification, setnotification] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:9000/api/notification/',{params:{token}})
+        axios.get('https://schedulerspace.herokuapp.com/api/notification/',{params:{token}})
         .then((res)=>{
             console.log(res.data.notifications)
             if(res.data.status==="ok"){
