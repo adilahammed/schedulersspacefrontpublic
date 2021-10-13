@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import './createacc.css'
+import './login.css'
 import axios from "axios";
 
 
@@ -25,7 +26,7 @@ const gettext=(e,a)=>{
 const login=()=>{
     console.log(username,email,password);
     console.log("craete clicked");
-    axios.post('https://schedulerspace.herokuapp.com/account/create',{
+    axios.post('http://localhost:9000/account/create',{
         username,
         email,
         password
@@ -49,11 +50,13 @@ return(
         <form>
             <h2>{success}</h2>
             
-            <div className="form-icon">
-                <span><i className="icon icon-user"></i></span><br/>
+            <div className="form loginlogo">
+                 <img src="http://localhost:9000/images/headerlogo1.png" width="200px" height="50px" ></img>
+               
+                {/* <span><i className="icon icon-user"></i></span><br/> */}
             </div>
             
-            <div className="form-group">
+            <div className="form-group tx">
                 <input onChange={(e)=>{gettext(e,"username")}} type="text" value={username} className="form-control item" id="username" placeholder="Username" />
             </div>
             <div className="form-group">

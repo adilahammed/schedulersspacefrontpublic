@@ -23,7 +23,9 @@ textarea{
     margin-top: 50px;
 }  
 @media only screen and (max-width: 500px){
+    
     .viewprofile{
+        width: auto;
         text-align: justify;
     }
 }

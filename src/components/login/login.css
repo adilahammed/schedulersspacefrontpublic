@@ -143,3 +143,14 @@
     pointer-events: none;
 }
 
+.loginlogo{
+    /* padding-left: 100px; */
+    /* margin-top:  ; */
+    margin-left: 110px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: #004c5f ;
+}
+.tx{
+    margin-top: 50px;
+}

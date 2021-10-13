@@ -20,7 +20,7 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
     const [notf,setnotf]=useState(0)
     const [showschedule,setshowschedule]=useState(0)
     useEffect(() => {
-        axios.post('https://schedulerspace.herokuapp.com/api/user/apposetusers',{
+        axios.post('http://localhost:9000/api/user/apposetusers',{
             token
         }).then((res)=>{
             console.log(res.data.message.dbresultuser);
@@ -83,7 +83,7 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
     useEffect(() => {
         if(searchtxt !== "!"){
             // alert(searchtxt)
-            axios.get('https://schedulerspace.herokuapp.com/api/user/search',{params:{token:token,text:searchtxt}})
+            axios.get('http://localhost:9000/api/user/search',{params:{token:token,text:searchtxt}})
             .then((res)=>{
                 setusers(res.data.users)
             })
@@ -110,18 +110,39 @@ function Body({token,appointvalue,profilechan,homechange,username,id,picture,ema
     }
     if(notf>0){
        return(
+        <div>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+         {viewappointment===true?<Popup closepopup={closepopup} 
+           token={token} />:""}
+       <div className={blur}>
            <Notifiction token={token} />
+       </div>    
+    </div> 
        ) 
     }
     if(editappointment>1){
         return(
-            <Appointmentmaker token={token} />
+            <div>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+         {viewappointment===true?<Popup closepopup={closepopup} 
+           token={token} />:""}
+       <div className={blur}>           
+         <Appointmentmaker token={token} />
+         </div>    
+         </div> 
         )
     }
     
     if(showschedule>0){
       return(
-          <Schedule token={token} />
+        <div>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+         {viewappointment===true?<Popup closepopup={closepopup} 
+           token={token} />:""}
+       <div className={blur}>           
+         <Schedule token={token} />
+         </div>    
+         </div> 
       )
     }
 

@@ -20,7 +20,7 @@ const login=()=>{
         // console.log(username,password);
     let data={id:username,password}
   
-        axios.get('https://schedulerspace.herokuapp.com/account/login',{params:{
+        axios.get('http://localhost:9000/account/login',{params:{
             id:username,
             password:password
         }}).then((res)=>{
@@ -48,20 +48,22 @@ const login=()=>{
     <div className="registration-form form-body container-fluid ">
         <form>
             <h2>{status} </h2>
-            <div className="form-icon">
-                <span><i className="icon icon-user"></i></span><br />
+            <div className="form loginlogo">
+                <img src="http://localhost:9000/images/headerlogo1.png" width="200px" height="50px" ></img>
+                
+                {/* <span><i className="icon icon-user"></i></span><br /> */}
             </div>
             
-            <div className="form-group">
+            <div className="form-group tx">
                 <input type="text" value={username} onChange={(e)=>{gettext(e,"username")}} className="form-control item" id="username" placeholder="Username or email" />
             </div>
             
-            <div className="form-group">
+            <div className="form-group tx">
                 <input type="password" value={password} onChange={(e)=>{gettext(e,"password")}} className="form-control item" id="password" placeholder="Password" />
             </div>
             
             
-            <div className="form-group">
+            <div className="form-group tx">
             
                 <button type="button" onClick={login} className="btn btn-block create-account">Login</button>
                  

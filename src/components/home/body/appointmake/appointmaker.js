@@ -56,7 +56,7 @@ function Appointmentmaker({token}){
     }
     const submit=()=>{
         axios({
-            url:"https://schedulerspace.herokuapp.com/api/appointment/setappo",
+            url:"http://localhost:9000/api/appointment/setappo",
             method:"post",
             data:{token,setappo:true,slotes:slote}
         })
@@ -79,7 +79,7 @@ function Appointmentmaker({token}){
                     <div >
                         <form>
 
-                        
+                        <h3>From</h3>
                         <input className="timeinput" onChange={(e)=>{
                             gethour(e,"from")
                         }} placeholder="hour"></input>
@@ -96,6 +96,7 @@ function Appointmentmaker({token}){
                         </form>
                     </div>
                     <div>
+                        <h3>To</h3>
                         <input className="timeinput" onChange={(e)=>{
                             gethour(e,"to")
                         }} placeholder="hour"></input>

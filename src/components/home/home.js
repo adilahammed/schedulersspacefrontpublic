@@ -17,7 +17,7 @@ function Home ({token,tokenmanage}){
  const [shownot,setshownot]=useState(0)
  const [sc,setsc]=useState(0)
  useEffect(() => {
-     axios.get('https://schedulerspace.herokuapp.com/api/user/personalinfo',{params:{token}}).then((res)=>{
+     axios.get('http://localhost:9000/api/user/personalinfo',{params:{token}}).then((res)=>{
         let {id,username,email,picture}=res.data.userinfo
         let {userinfo1}=res.data.userinfo
         setid(id)

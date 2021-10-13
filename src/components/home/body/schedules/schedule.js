@@ -4,7 +4,7 @@ import axios from 'axios'
 function Schedule({token}){
     const [schedules, setschedules] = useState([])
     useEffect(() => {
-        axios.get('https://schedulerspace.herokuapp.com/api/notification/schedules',{
+        axios.get('http://localhost:9000/api/notification/schedules',{
             params:{token}
         }).then((res)=>{
             console.log(res.data.schedules);

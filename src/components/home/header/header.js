@@ -44,7 +44,7 @@ function Header({username,id,token,tokenmanage,
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" / >
         <nav  className="col-12 navbar  navbar-expand-lg navbar-dark header">
         <div className="container-fluid">
-          <img src="https://schedulerspace.herokuapp.com/images/headerlogo1.png" width="200px" height="50px" ></img>
+          <img src="http://localhost:9000/images/headerlogo1.png" width="200px" height="50px" ></img>
           {/* <a className="navbar-brand" href="#">{username}</a> */}
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@ function Header({username,id,token,tokenmanage,
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item" >
-                <a className="nav-link active" onClick={()=>{
+                <a className="nav-link active hv" onClick={()=>{
                   home(h)
                  let ch=h
                  ch++

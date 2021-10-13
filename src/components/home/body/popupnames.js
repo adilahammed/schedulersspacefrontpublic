@@ -11,7 +11,7 @@ function Popupnames({token,names,sloteno,nameno,viewuser}){
         // alert(sloteno)
         // alert(nameno)
         setaccepticon("loading")
-        axios.post("https://schedulerspace.herokuapp.com/api/appointment/accept",{
+        axios.post("http://localhost:9000/api/appointment/accept",{
             token:token,
             accid:names,
             sloteno,

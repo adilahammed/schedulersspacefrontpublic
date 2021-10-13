@@ -13,7 +13,7 @@ function Popup({closepopup,token}){
     const [requestlist,setrequestlist]=useState([])
     const [userdet,setuserdet]=useState("")
     useEffect(()=>{
-        axios.get('https://schedulerspace.herokuapp.com/api/appointment/viewreq',{params:{token:token}})
+        axios.get('http://localhost:9000/api/appointment/viewreq',{params:{token:token}})
         .then((res)=>{
             
             console.log(res.data.message);
@@ -23,7 +23,7 @@ function Popup({closepopup,token}){
     },[])
 
     const viewuser=(a)=>{
-        axios.get('https://schedulerspace.herokuapp.com/api/user/viewuser',{params:{token,name:a}})
+        axios.get('http://localhost:9000/api/user/viewuser',{params:{token,name:a}})
         .then((res)=>{
             console.log(res.data.userinfo);
             setuserdet(res.data.userinfo)
@@ -31,6 +31,10 @@ function Popup({closepopup,token}){
     }
     const back=()=>{
         setuserdet("")
+    }
+    const deleteslote=()=>{
+        
+        axios.post('http://localhost:9000/api/appointment/deleteslote',{token})
     }
     if(userdet !== ""){
         return(
@@ -47,7 +51,7 @@ function Popup({closepopup,token}){
                 <div className="userdet">
                     <div>
                         
-                          <img className="userdetimage inbl" src={`https://schedulerspace.herokuapp.com/images/${userdet.picture}`} width="100" height="100"></img>
+                          <img className="userdetimage inbl" src={`http://localhost:9000/images/${userdet.picture}`} width="100" height="100"></img>
                           <div className="inbl userdetname">
                             <h1>{userdet.username}</h1>
                             <h3>{userdet.email}</h3>
@@ -77,7 +81,9 @@ function Popup({closepopup,token}){
                         sloteno={i} viewuser={viewuser} />
                        )
                   })}
-
+             <div onClick={deleteslote} className="hv trash"> 
+                <img src="https://img.icons8.com/material-outlined/24/000000/trash--v1.png"/>
+            </div>     
         </div>
     )
 }
